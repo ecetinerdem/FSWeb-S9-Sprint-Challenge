@@ -8,6 +8,9 @@ const initialIndex = 4 //  "B" nin bulunduğu indexi
 
 export default function AppFunctional(props) {
   const [selectedIndex, setSelectedIndex] = useState(initialIndex)
+  const [steps, setSteps] = useState(initialSteps)
+  const [message, setMessage] = useState(initialMessage)
+  const [email, setEmail] = useState(initialEmail)
   // AŞAĞIDAKİ HELPERLAR SADECE ÖNERİDİR.
   // Bunları silip kendi mantığınızla sıfırdan geliştirebilirsiniz.
 
@@ -25,6 +28,9 @@ export default function AppFunctional(props) {
   function reset() {
     // Tüm stateleri başlangıç ​​değerlerine sıfırlamak için bu helperı kullanın.
     setSelectedIndex(initialIndex)
+    setSteps(initialSteps)
+    setMessage(initialMessage)
+    setEmail(initialEmail)
   }
 
   function sonrakiIndex(yon) {
