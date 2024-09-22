@@ -41,6 +41,7 @@ export default function AppFunctional(props) {
       // Move left if not at the first column
       if (selectedIndex % 3 !== 0) {
         setSelectedIndex(selectedIndex - 1);
+        setSteps(steps + 1);
       }
     }
     
@@ -48,6 +49,7 @@ export default function AppFunctional(props) {
       // Move right if not at the last column
       if (selectedIndex % 3 !== 2) {
         setSelectedIndex(selectedIndex + 1);
+        setSteps(steps + 1);
       }
     }
     
@@ -55,6 +57,7 @@ export default function AppFunctional(props) {
       // Move up if not in the top row
       if (selectedIndex > 2) {
         setSelectedIndex(selectedIndex - 3);
+        setSteps(steps + 1);
       }
     }
     
@@ -62,6 +65,7 @@ export default function AppFunctional(props) {
       // Move down if not in the bottom row
       if (selectedIndex < 6) {
         setSelectedIndex(selectedIndex + 3);
+        setSteps(steps + 1);
       }
     }
   }
@@ -83,7 +87,7 @@ export default function AppFunctional(props) {
     <div id="wrapper" className={props.className}>
       <div className="info">
         <h3 id="coordinates">Koordinatlar (2, 2)</h3>
-        <h3 id="steps">0 kere ilerlediniz</h3>
+        <h3 id="steps">{steps} kere ilerlediniz</h3>
       </div>
       <div id="grid">
         {
@@ -95,7 +99,7 @@ export default function AppFunctional(props) {
         }
       </div>
       <div className="info">
-        <h3 id="message"></h3>
+        <h3 id="message">{message}</h3>
       </div>
       <div id="keypad">
         <button id="left" onClick={(e) => sonrakiIndex(e.target.id)}>SOL</button>
