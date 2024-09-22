@@ -1,3 +1,4 @@
+import axios from 'axios'
 import e from 'cors'
 import React, { useState } from 'react'
 
@@ -107,8 +108,20 @@ export default function AppFunctional(props) {
     setEmail(evt.target.value)
   }
 
-  function onSubmit(evt) {
+  function onSubmitHandler(evt) {
+    evt.preventDefault()
     // payloadu POST etmek için bir submit handlera da ihtiyacınız var.
+    const payload = {
+      "x": getXY().slice(1, 2), "y": getXY().slice(4, 5), steps: steps, email: email
+    }
+
+    axios.post('http://localhost:9000/api/result', payload)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   return (
@@ -136,8 +149,8 @@ export default function AppFunctional(props) {
         <button id="down" onClick={(e) => sonrakiIndex(e.target.id)}>AŞAĞI</button>
         <button id="reset" onClick={reset}>reset</button>
       </div>
-      <form>
-        <input value= {email} id="email" type="email" placeholder="email girin" onChange={(e) => onChangeHandler(e)}></input>
+      <form onSubmit={(e) => onSubmitHandler(e)}>
+        <input value={email} id="email" type="email" placeholder="email girin" onChange={(e) => onChangeHandler(e)}></input>
         <input id="submit" type="submit"></input>
       </form>
     </div>
