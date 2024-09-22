@@ -42,6 +42,9 @@ export default function AppFunctional(props) {
       if (selectedIndex % 3 !== 0) {
         setSelectedIndex(selectedIndex - 1);
         setSteps(steps + 1);
+      } else {
+        setMessage("Sola gidemezsiniz")
+        
       }
     }
     
@@ -50,6 +53,9 @@ export default function AppFunctional(props) {
       if (selectedIndex % 3 !== 2) {
         setSelectedIndex(selectedIndex + 1);
         setSteps(steps + 1);
+      } else {
+        setMessage("Sağa gidemezsiniz")
+        
       }
     }
     
@@ -58,6 +64,9 @@ export default function AppFunctional(props) {
       if (selectedIndex > 2) {
         setSelectedIndex(selectedIndex - 3);
         setSteps(steps + 1);
+      } else {
+        setMessage("Yukarıya gidemezsiniz")
+        
       }
     }
     
@@ -66,6 +75,9 @@ export default function AppFunctional(props) {
       if (selectedIndex < 6) {
         setSelectedIndex(selectedIndex + 3);
         setSteps(steps + 1);
+      } else {
+        setMessage("Aşağıya gidemezsiniz")
+        
       }
     }
   }
