@@ -113,14 +113,17 @@ export default function AppFunctional(props) {
     // payloadu POST etmek için bir submit handlera da ihtiyacınız var.
     const payload = {
       "x": getXY().slice(1, 2), "y": getXY().slice(4, 5), steps: steps, email: email
-    }
+    };
+    setEmail(initialEmail)
 
     axios.post('http://localhost:9000/api/result', payload)
     .then(function (response) {
       console.log(response);
+      setMessage(response.data.message)
     })
     .catch(function (error) {
       console.log(error);
+      setMessage(error.response.data.message)
     });
   }
 
