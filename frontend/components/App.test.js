@@ -9,11 +9,22 @@ test('sanity', () => {
 })
 
 test("renders without crash;ing", () => {
-  render(<AppFunctional />)
+  render(<AppFunctional />);
 })
 
 test ("test initial state", () => {
-  render(<AppFunctional />)
+  render(<AppFunctional />);
   const headings = screen.getAllByRole("headings", {level: 3}).toHaveLength(3);
-  expect(headings[0]).toHave
+
+  expect(headings[0]).toHaveTextContent("Kordinatlar (2, 2)");
+
+  expect(headings[1]).toHaveTextContent("0 kere ilerlediniz");
+
+  expect(headings[2]).toHaveTextContent("");
+})
+
+test("test 6 buttons render", () => {
+  render(<AppFunctional />);
+  const buttons = screen.getAllByRole("button");
+  expect(buttons).toHaveLength(6);
 })
